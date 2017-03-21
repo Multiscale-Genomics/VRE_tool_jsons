@@ -208,7 +208,10 @@
                 "tss_classification_by_nucleosomes",
                 "nucleosome_free_regions",
                 "nucleosome_stiffness",
-                "tool_statistics"
+                "configuration_file",
+                "tool_statistics",
+                "tool_intermediate_file"
+                
               ]
             },
             "id": "http://multiscalegenomics.eu/tool-schema/input_files/2/data_type"
@@ -260,6 +263,7 @@
               "number",
               "string",
               "enum",
+              "enum_multiple",
               "boolean"
             ],
             "id": "http://multiscalegenomics.eu/tool-schema/arguments/27/type"
@@ -273,12 +277,15 @@
             "type": "object",
             "properties": {
               "name": {
-                "type": "string"
+                "type": "array"
+                
               },
               "description": {
-                "type": "string"
+                "type": "array"
               }
+              
             },
+            "required":["name"],
             "id": "http://multiscalegenomics.eu/tool-schema/arguments/27/items"
           },
           "maximum": {
@@ -415,7 +422,9 @@
                 "tss_classification_by_nucleosomes",
                 "nucleosome_free_regions",
                 "nucleosome_stiffness",
-                "tool_statistics"
+                "configuration_file",
+                "tool_statistics",
+                "tool_intermediate_file"
               ],
                 "id": "http://multiscalegenomics.eu/tool-schema/output_files/7/file/data_type"
               },
