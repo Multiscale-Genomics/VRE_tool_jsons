@@ -17,7 +17,7 @@
     "launcher": {
         "type": "SGE",
         "queue": "nuclDyn.q",
-        "executable": "/orozco/services/Rdata/Web/apps/nucleServ_MuG/nucleosomeDynamics_wf.py",
+        "executable": "/absolute/path/VM/tool_wrapper/nucleosomeDynamics_wf.py",
         "cpus": 1
     },
     "input_files": [
@@ -54,10 +54,10 @@
             "name": "nucleR",
             "description": "Nucleosome Calling",
             "help": "Use NucleR for computing nucleosome positioning",
-            "type": "dependent_group",
+            "type": "boolean",
             "required": true,
             "allow_multiple": false,
-            "default": "on"
+            "default": "true"
         },
         {
             "name": "nucleR:width",
@@ -65,7 +65,6 @@
             "help": "Size of each nucleosome, in bp, to be considered by NucleR",
             "type": "integer",
             "required": true,
-            "dependent_group_id": "nucleR",
             "allow_multiple": false,
             "default": "147"
         },
@@ -75,7 +74,6 @@
             "help": "",
             "type": "integer",
             "required": true,
-            "dependent_group_id": "nucleR",
             "allow_multiple": false,
             "default": ""
         },
@@ -85,17 +83,15 @@
             "help": "",
             "type": "integer",
             "required": true,
-            "dependent_group_id": "nucleR",
             "allow_multiple": false,
             "default": ""
         },
         {
             "name": "nucleR:threshold",
             "description": "Background Level",
+            "type":"boolean",
             "help": "",
-            "type": "exclusive_group",
             "required": true,
-            "dependent_group_id": "nucleR",
             "allow_multiple": false
         },
         {
@@ -104,8 +100,6 @@
             "help": "",
             "type": "number",
             "required": true,
-            "dependent_group_id": "nucleR",
-            "exclusive_group_id": "threshold",
             "allow_multiple": false,
             "default": "35",
             "maximum": 100,
@@ -117,8 +111,6 @@
             "help": "",
             "type": "integer",
             "required": true,
-            "dependent_group_id": "nucleR",
-            "exclusive_group_id": "threshold",
             "allow_multiple": false,
             "default": ""
         },
@@ -128,7 +120,6 @@
             "help": "",
             "type": "number",
             "required": true,
-            "dependent_group_id": "nucleR",
             "allow_multiple": false,
             "default": "0.4"
         },
@@ -138,7 +129,6 @@
             "help": "",
             "type": "number",
             "required": true,
-            "dependent_group_id": "nucleR",
             "allow_multiple": false,
             "default": "0.6"
         },
@@ -148,7 +138,6 @@
             "help": "",
           	"type":"number",
             "required": true,
-            "dependent_group_id": "nucleR",
             "allow_multiple": false,
             "default": "0.02"
         },
@@ -156,10 +145,10 @@
             "name": "nucDyn",
             "description": "Nucleosome Dynamics",
             "help": "",
-            "type": "dependent_group",
+            "type": "boolean",
             "required": true,
             "allow_multiple": false,
-            "default": "on"
+            "default": "true"
         },
         {
             "name": "nucDyn:range",
@@ -167,7 +156,6 @@
             "help": "",
             "type": "string",
             "required": true,
-            "dependent_group_id": "nucDyn",
             "allow_multiple": false,
             "default": ""
         },
@@ -177,7 +165,6 @@
             "help": "",
             "type": "integer",
             "required": true,
-            "dependent_group_id": "nucDyn",
             "allow_multiple": false,
             "default": ""
         },
@@ -187,7 +174,6 @@
             "help": "",
             "type": "integer",
             "required": true,
-            "dependent_group_id": "nucDyn",
             "allow_multiple": false,
             "default": ""
         },
@@ -195,9 +181,8 @@
             "name": "nucDyn:equal_size",
             "description": "Equal Size",
             "help": "",
-            "type": "exclusive_group",
+          	"type":"boolean",
             "required": true,
-            "dependent_group_id": "nucDyn",
             "allow_multiple": false
         },
         {
@@ -206,8 +191,6 @@
             "help": "",
             "type": "integer",
             "required": true,
-            "dependent_group_id": "nucDyn",
-            "exclusive_group_id": "equal_size",
             "allow_multiple": false,
             "default": "5"
         },
@@ -216,26 +199,22 @@
             "type": "integer",
             "description": "",
             "required": true,
-            "dependent_group_id": "nucDyn",
-            "exclusive_group_id": "equal_size",
             "allow_multiple": false,
             "default": "140"
         },
         {
             "name": "nucDyn:same__magnitude",
-            "type": "dependent_group",
+            "type": "boolean",
             "description": "",
             "required": true,
-            "dependent_group_id": "nucDyn",
             "allow_multiple": false,
-            "default": "on"
+            "default": "true"
         },
         {
             "name": "nucDyn:shift_min_nreads",
             "type": "integer",
             "description": "",
             "required": true,
-            "dependent_group_id": "nucDyn",
             "allow_multiple": false,
             "default": ""
         },
@@ -244,7 +223,6 @@
             "type": "integer",
             "description": "",
             "required": true,
-            "dependent_group_id": "nucDyn",
             "allow_multiple": false,
             "default": ""
         },
@@ -253,7 +231,6 @@
             "type": "integer",
             "description": "",
             "required": true,
-            "dependent_group_id": "nucDyn",
             "allow_multiple": false,
             "default": ""
         },
@@ -262,7 +239,6 @@
             "type": "integer",
             "description": "",
             "required": true,
-            "dependent_group_id": "nucDyn",
             "allow_multiple": false,
             "default": ""
         },
@@ -270,17 +246,16 @@
             "name": "NFR",
             "description": "Nucleosome Free Regions",
             "help": "",
-            "type": "dependent_group",
+            "type": "boolean",
             "required": true,
             "allow_multiple": false,
-            "default": "on"
+            "default": "true"
         },
         {
             "name": "NFR:minwidth",
             "type": "integer",
             "description": "",
             "required": true,
-            "dependent_group_id": "NFR",
             "allow_multiple": false,
             "default": ""
         },
@@ -289,7 +264,6 @@
             "type": "integer",
             "description": "",
             "required": true,
-            "dependent_group_id": "NFR",
             "allow_multiple": false,
             "default": ""
         },
@@ -297,17 +271,16 @@
             "name": "periodicity",
             "description": "Nucleoseome Gene Phasing",
             "help": "",
-            "type": "dependent_group",
+            "type": "boolean",
             "required": true,
             "allow_multiple": false,
-            "default": "on"
+            "default": "true"
         },
         {
             "name": "periodicity:periodicity",
             "type": "integer",
             "description": "",
             "required": true,
-            "dependent_group_id": "periodicity",
             "allow_multiple": false,
             "default": ""
         },
@@ -315,16 +288,15 @@
             "name": "txstart",
             "description": "TSS classification",
             "help": "",
-            "type": "dependent_group",
+            "type": "boolean",
             "required": true,
             "allow_multiple": false,
-            "default": "on"
+            "default": "true"
         },
         {
             "name": "txstart:window",
             "type": "integer",
             "description": "",
-            "dependent_group_id": "txstart",
             "required": true,
             "allow_multiple": false,
             "default": ""
@@ -333,7 +305,6 @@
             "name": "txstart:open__thresh",
             "type": "integer",
             "description": "",
-            "dependent_group_id": "txstart",
             "required": true,
             "allow_multiple": false,
             "default": ""
@@ -342,16 +313,15 @@
             "name": "gausfitting",
             "description": "Stiffness",
             "help": "",
-            "type": "dependent_group",
+            "type": "boolean",
             "required": true,
             "allow_multiple": false,
-            "default": "on"
+            "default": "true"
         },
         {
             "name": "gausfitting:range",
             "type": "string",
             "description": "",
-            "dependent_group_id": "gausfitting",
             "required": true,
             "allow_multiple": false,
             "default": "all"
@@ -367,9 +337,6 @@
                 "file_type": "GFF3",
                 "data_type": "nucleosome_positioning",
                 "compressed": "null",
-                "source_id": [
-                    "$(input_files.MNaseSeq)"
-                ],
                 "meta_data ": {
                     "description": "Nuclesome positions predicted by NucleR from MNase-seq data",
                     "tool": "nucldynwf",
@@ -385,10 +352,6 @@
                 "file_type": "GFF3",
                 "data_type": "nucleosome_dynamics",
                 "compressed": "null",
-                "source_id": [
-                    "$(input_files.condition1)",
-                    "$(input_files.condition2)"
-                ],
                 "meta_data ": {
                     "description": "Nucleosome positioning differences given two MNAse-seq states",
                     "tool": "nucldynwf",
@@ -404,9 +367,6 @@
                 "file_type": "GFF3",
                 "data_type": "nucleosome_free_regions",
                 "compressed": "null",
-                "source_id": [
-                    "$(input_files.MNaseSeq)"
-                ],
                 "meta_data ": {
                     "description": "Nucleosome Free Regions computed from MNase-seq data",
                     "tool": "nucldynwf",
@@ -422,9 +382,6 @@
                 "file_type": "GFF3",
                 "data_type": "tss_classification_by_nucleosomes",
                 "compressed": "null",
-                "source_id": [
-                    "$(input_files.MNaseSeq)"
-                ],
                 "meta_data ": {
                     "description": "Transcriptions Start Site classification based on nucleosome architecture",
                     "tool": "nucldynwf",
@@ -440,9 +397,6 @@
                 "file_type": "GFF3",
                 "data_type": "nucleosome_stiffness",
                 "compressed": "null",
-                "source_id": [
-                    "$(input_files.MNaseSeq)"
-                ],
                 "meta_data ": {
                     "description": "Nucleosome stiffness computed from MNase-seq data",
                     "tool": "nucldynwf",
@@ -458,9 +412,6 @@
                 "file_type": "GFF3",
                 "data_type": "nucleosome_gene_phasing",
                 "compressed": "null",
-                "source_id": [
-                    "$(input_files.MNaseSeq)"
-                ],
                 "meta_data ": {
                     "description": "Nucleosome phasing along a given gene computed from MNase-seq data",
                     "tool": "nucldynwf",
@@ -476,9 +427,6 @@
                 "file_type": "GFF3",
                 "data_type": "nucleosome_gene_phasing",
                 "compressed": "null",
-                "source_id": [
-                    "$(input_files.MNaseSeq)"
-                ],
                 "meta_data ": {
                     "description": "Nucleosome phasing along a given gene computed from MNase-seq data",
                     "tool": "nucldynwf",
@@ -494,9 +442,6 @@
                 "file_type": "TAR",
                 "data_type": "tool_statistics",
                 "compressed": "gzip",
-                "source_id": [
-                    "$(input_files.MNaseSeq)"
-                ],
                 "meta_data ": {
                     "description": "Statistical data from nucleosome analysis workflow",
                     "tool": "nucldynwf",

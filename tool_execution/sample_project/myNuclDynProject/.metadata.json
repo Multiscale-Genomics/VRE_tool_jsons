@@ -1,0 +1,128 @@
+[
+    {
+        "_id": "MuGUSER57ecf22d91df3_58b96fdc22eba8.25657003",
+        "file_path": "uploads/sample_cellcycle_G1.bam",
+        "file_type": "BAM",
+        "data_type": null,
+        "compressed": 0,
+        "source_id": [
+            "MuGUSER57ecf22d91df3_58b96fdc22eba8.25657003"
+        ],
+        "creation_time": {
+            "sec": 1488547804,
+            "usec": 0
+        },
+        "meta_data": {
+            "owner": "MuGUSER57ecf22d91df3",
+            "size": 4464671,
+            "parentDir": "MuGUSER57ecf22d91df3_57ecf22db91785.82953728",
+            "expiration": {
+                "sec": 1492003804,
+                "usec": 0
+            },
+            "validated": 1,
+            "trackType": "BAM",
+            "visible": true,
+            "paired": "paired",
+            "sorted": "sorted",
+            "description": "G cellcycle",
+            "tool": "BAMval",
+            "associated_files": [
+                "MuGUSER57ecf22d91df3_58b974503d46b3.54782992"
+            ],
+            "taxon_id": "R64-1-1"
+        }
+    },
+    {
+        "_id": "MuGUSER57ecf22d91df3_58b974503d46b3.54782992",
+        "file_path": "uploads/sample_cellcycle_G1.bam.bai",
+        "file_type": "BAI",
+        "data_type": null,
+        "compressed": 0,
+        "source_id": [
+            "MuGUSER57ecf22d91df3_58b96fdc22eba8.25657003"
+        ],
+        "creation_time": {
+            "sec": 1488548904,
+            "usec": 0
+        },
+        "meta_data": {
+            "owner": "MuGUSER57ecf22d91df3",
+            "size": 520,
+            "parentDir": "MuGUSER57ecf22d91df3_57ecf22db91785.82953728",
+            "expiration": {
+                "sec": 1492004904,
+                "usec": 0
+            },
+            "visible": false,
+            "description": "G cellcycle",
+            "validated": 1,
+            "tool": "BAMval",
+            "associated_id": "MuGUSER57ecf22d91df3_58b96fdc22eba8.25657003",
+            "taxon_id": "R64-1-1"
+        }
+    },
+    {
+        "_id": "MuGUSER57ecf22d91df3_58b975fba8d344.30112648",
+        "file_path": "uploads/sample_cellcycle_M.bam",
+        "file_type": "BAM",
+        "data_type": null,
+        "compressed": 0,
+        "source_id": [
+            "MuGUSER57ecf22d91df3_58b975fba8d344.30112648"
+        ],
+        "creation_time": {
+            "sec": 1488549371,
+            "usec": 0
+        },
+        "meta_data": {
+            "owner": "MuGUSER57ecf22d91df3",
+            "size": 3691026,
+            "parentDir": "MuGUSER57ecf22d91df3_57ecf22db91785.82953728",
+            "expiration": {
+                "sec": 1492005371,
+                "usec": 0
+            },
+            "validated": 1,
+            "trackType": "BAM",
+            "visible": true,
+            "paired": "paired",
+            "sorted": "sorted",
+            "description": "M cellcycle",
+            "associated_files": [
+                "MuGUSER57ecf22d91df3_58b9769216fa53.66468461"
+            ],
+            "tool": "BAMval",
+            "taxon_id": "R64-1-1"
+        }
+    },
+    {
+        "_id": "MuGUSER57ecf22d91df3_58b9769216fa53.66468461",
+        "file_path": "uploads/sample_cellcycle_M.bam.bai",
+        "file_type": "BAI",
+        "data_type": null,
+        "compressed": 0,
+        "source_id": [
+            "MuGUSER57ecf22d91df3_58b975fba8d344.30112648"
+        ],
+        "creation_time": {
+            "sec": 1488549414,
+            "usec": 0
+        },
+        "meta_data": {
+            "owner": "MuGUSER57ecf22d91df3",
+            "size": 496,
+            "parentDir": "MuGUSER57ecf22d91df3_57ecf22db91785.82953728",
+            "expiration": {
+                "sec": 1492005414,
+                "usec": 0
+            },
+            "visible": false,
+            "description": "M cellcycle",
+            "validated": 1,
+            "tool": "BAMval",
+            "associated_id": "MuGUSER57ecf22d91df3_58b975fba8d344.30112648",
+            "taxon_id": "R64-1-1"
+        }
+    }
+]

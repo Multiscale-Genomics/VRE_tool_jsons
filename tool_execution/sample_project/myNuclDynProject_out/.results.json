@@ -1,0 +1,33 @@
+{
+    "output_files": [
+        {
+            "name": "NR_gff",
+            "source_id": [
+                "TODO"
+            ],
+            "taxon_id": 0,
+            "meta_data": {
+                "assembly": "R64-1-1"
+            },
+            "file_path": "/absolute/path/MuG/MuG_userdata/MuGUSER57ecf22d91df3/myNuclDynProject/NR_sample_cellcycle_G1.gff"
+        },
+        {
+            "name": "NR_gff",
+            "source_id": [
+                "TODO"
+            ],
+            "taxon_id": 0,
+            "meta_data": {
+                "assembly": "R64-1-1"
+            },
+            "file_path": "/absolute/path/MuG/MuG_userdata/MuGUSER57ecf22d91df3/myNuclDynProject/NR_sample_cellcycle_M.gff"
+        },
+        {
+            "name": "statistics",
+            "source_id": [
+                "TODO"
+            ],
+            "file_path": "/absolute/path/MuG/MuG_userdata/MuGUSER57ecf22d91df3/myNuclDynProject/results.tar.gz"
+        }
+    ]
+}

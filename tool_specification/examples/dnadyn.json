@@ -1,0 +1,124 @@
+{
+    "_id": "dnadyn",
+    "name": "MC-DNA",
+    "title": "MC DNA Dynamics",
+    "short_description": "TODO Short description goes here",
+    "owner": {
+        "institution": "IRB",
+        "author": "Jürgen Walther",
+        "contact": "juergen.walther@irbbarcelona.org",
+        "url": "http://mmb.pcb.ub.es/www/"
+    },
+    "external": true,
+    "keywords": [
+        "dna"
+    ],
+    "launcher": {
+        "type": "SGE",
+        "queue": "naFlex.q",
+        "executable": "/TODO/path/to/VM/wrapper",
+        "cpus": 1
+    },
+    "input_files": [
+        {
+            "name": "sequence",
+            "description": "DNA sequence",
+            "help": "DNA sequence help",
+            "file_type": ["TXT"],
+            "data_type": ["sequence_dna"],
+            "required": true,
+            "allow_multiple": false
+        }
+    ],
+    "arguments": [
+        {
+            "name": "createStructure",
+            "description": "Create equilibrium structure",
+            "help": "TODO Help for create equilibrium structure",
+            "type": "boolean",
+            "required": true,
+            "default": "on"
+        },
+        {
+            "name": "createTrajectory",
+            "description": "Create multiple structures",
+            "help": "TODO Help for create multiple  structure",
+            "type": "boolean",
+            "required": true,
+            "default": "off"
+                                },
+        {
+            "name": "createTrajectory:numStruct",
+            "description": "Number of structures",
+            "help": "TODO Help for Number of structures ",
+            "type": "integer",
+            "minimum":1,
+            "maximum":500,
+            "required": true,
+            "default": "100"
+        }
+    ],
+    "control_file": ".results.json",
+    "output_files": [
+        {
+            "name": "PDB_dna_structure",
+            "required": false,
+            "allow_multiple": false,
+            "file": {
+                "file_type": "PDB",
+                "data_type": "na_structure",
+                "compressed": "null",
+                "meta_data ": {
+                    "description": "Equilibrium structure",
+                    "tool": "dnadyn",
+                    "visible": true
+                }
+            }
+        },
+        {
+            "name": "dna_trajectory",
+            "required": false,
+            "allow_multiple": false,
+            "file": {
+                "file_type": "DCD",
+                "data_type": "na_traj",
+                "compressed": "null",
+                "meta_data ": {
+                    "description": "DNA trajectory",
+                    "tool": "dnadyn",
+                    "visible": true
+                }
+            }
+        },
+        {
+            "name": "dna_top",
+            "required": false,
+            "allow_multiple": false,
+            "file": {
+                "file_type": "TOP",
+                "data_type": "na_top",
+                "compressed": "null",
+                "meta_data ": {
+                    "description": "DNA topology",
+                    "tool": "dnadyn",
+                    "visible": true
+                }
+            }
+                                },
+        {
+            "name": "summary",
+            "required": true,
+            "allow_multiple": false,
+            "file": {
+                "file_type": "TAR",
+                "data_type": "tool_statistics",
+                "compressed": "gzip",
+                "meta_data ": {
+                    "description": "dnadyn summary plots",
+                    "tool": "dnadyn",
+                    "visible": false
+                }
+            }
+        }
+    ]
+}

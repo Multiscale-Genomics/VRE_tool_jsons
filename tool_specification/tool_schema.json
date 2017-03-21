@@ -1,0 +1,574 @@
+{
+  "id": "http://multiscalegenomics.eu/tool-schema",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "title": "MuG tool definition schema",
+  "description": "Specification of MuG tools as required for VRE",
+  "properties": {
+    "_id": {
+      "type": "string",
+      "id": "http://multiscalegenomics.eu/tool-schema/_id"
+    },
+    "name": {
+      "type": "string",
+      "id": "http://multiscalegenomics.eu/tool-schema/name"
+    },
+    "title": {
+      "type": "string",
+      "id": "http://multiscalegenomics.eu/tool-schema/title",
+      "default": "null"
+    },
+    "short_description": {
+      "type": "string",
+      "id": "http://multiscalegenomics.eu/tool-schema/short_description",
+      "default": "null"
+    },
+    "url": {
+      "type": "string",
+      "id": "http://multiscalegenomics.eu/tool-schema/url"
+    },
+    "publication": {
+          "type": "string",
+          "id": "http://multiscalegenomics.eu/tool-schema/doi"
+    },
+    "owner": {
+      "type": "object",
+      "properties": {
+        "institution": {
+          "type": "string",
+          "id": "http://multiscalegenomics.eu/tool-schema/owner/institution"
+        },
+        "author": {
+          "type": "string",
+          "id": "http://multiscalegenomics.eu/tool-schema/owner/author"
+        },
+        "contact": {
+          "type": "string",
+          "id": "http://multiscalegenomics.eu/tool-schema/owner/contact"
+        },
+        "url": {
+          "type": "string",
+          "id": "http://multiscalegenomics.eu/tool-schema/owner/url"
+        }
+      },
+      "id": "http://multiscalegenomics.eu/tool-schema/owner",
+      "required": [
+        "institution",
+        "contact"
+      ]
+    },
+    "external": {
+      "type": "boolean",
+      "id": "http://multiscalegenomics.eu/tool-schema/external",
+      "default": true
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "protein",
+          "dna",
+          "rna",
+          "visualizer",
+          "3c",
+          "other"
+        ]
+      },
+      "default": "other",
+      "id": "http://multiscalegenomics.eu/tool-schema/keywords"
+    },
+    "launcher": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/SGE"
+        },
+        {
+          "$ref": "#/definitions/PMES"
+        }
+      ],
+      "properties": {
+        "executable": {
+          "type": "string",
+          "id": "http://multiscalegenomics.eu/tool-schema/launcher/executable"
+        },
+        "cpus": {
+          "type": "integer",
+          "id": "http://multiscalegenomics.eu/tool-schema/launcher/cpus"
+        },
+        "max_mem": {
+          "type": "string",
+          "id": "http://multiscalegenomics.eu/tool-schema/launcher/max_mem"
+        }
+      },
+      "id": "http://multiscalegenomics.eu/tool-schema/launcher",
+      "required": [
+        "type",
+        "executable"
+      ]
+    },
+    "input_files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "id": "http://multiscalegenomics.eu/tool-schema/input_files/2/name"
+          },
+          "description": {
+            "type": "string",
+            "id": "http://multiscalegenomics.eu/tool-schema/input_files/2/description"
+          },
+          "help": {
+            "type": "string",
+            "id": "http://multiscalegenomics.eu/tool-schema/input_files/2/help",
+            "default": null
+          },
+          "file_type": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "null",
+                "FASTA",
+                "FASTQ",
+                "BAM",
+                "BAI",
+                "BED",
+                "BB",
+                "BEDGRAPH",
+                "WIG",
+                "BW",
+                "GFF",
+                "GFF3",
+                "GTF",
+                "TSV",
+                "CSV",
+                "TXT",
+                "TAR",
+                "TBI",
+                "VCF",
+                "JSON",
+                "PDB",
+                "XTC",
+                "NETCDF",
+                "DCD",
+                "TOP",
+                "TPR",
+                "PARMTOP",
+                "MDCRD",
+                "HDF5",
+                "PDF",
+                "TIFF",
+                "LIF",
+                "PNG"
+              ]
+            },
+            "id": "http://multiscalegenomics.eu/tool-schema/input_files/2/file_type"
+          },
+          "data_type": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "sequence_genomic",
+                "sequence_rna",
+                "sequence_dna",
+                "sequence_prot",
+                "sequence_annotation",
+                "structure",
+                "na_structure",
+                "na_traj",
+                "na_top",
+                "na_md_atom_traj_coords",
+                "na_md_atom_traj_top",
+                "na_md_cg_traj",
+                "md_restart",                
+                "data_chip_seq",
+                "data_atac_seq",
+                "data_mnase_seq",
+                "data_rna_seq",
+                "data_dna_methylation",
+                "data_fish",
+                "hic_reads",
+                "hic_contacts_matrix",
+                "hic_contacts_coverage",
+                "hic_tads_scale",
+                "hic_contacts_peaks",
+                "hic_contacts_differential",
+                "hic_directionality",
+                "chromatine_tads",
+                "chromatine_compartments",
+                "cromatine_3dmodel_ensemble",
+                "nucleosome_positioning",
+                "nucleosome_dynamics",
+                "nucleosome_gene_phasing",
+                "tss_classification_by_nucleosomes",
+                "nucleosome_free_regions",
+                "nucleosome_stiffness",
+                "tool_statistics"
+              ]
+            },
+            "id": "http://multiscalegenomics.eu/tool-schema/input_files/2/data_type"
+          },
+          "required": {
+            "type": "boolean",
+            "id": "http://multiscalegenomics.eu/tool-schema/input_files/2/required",
+            "default": true
+          },
+          "allow_multiple": {
+            "type": "boolean",
+            "id": "http://multiscalegenomics.eu/tool-schema/input_files/2/allow_multiple",
+            "default": false
+          }
+        },
+        "required": [
+          "name",
+          "description",
+          "file_type",
+          "data_type",
+          "required",
+          "allow_multiple"
+        ]
+      },
+      "id": "http://multiscalegenomics.eu/tool-schema/input_files"
+    },
+    "arguments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "id": "http://multiscalegenomics.eu/tool-schema/arguments/27/name"
+          },
+          "description": {
+            "type": "string",
+            "id": "http://multiscalegenomics.eu/tool-schema/arguments/27/description"
+          },
+          "help": {
+            "type": "string",
+            "id": "http://multiscalegenomics.eu/tool-schema/arguments/27/help",
+            "default": null
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "integer",
+              "number",
+              "string",
+              "enum",
+              "boolean"
+            ],
+            "id": "http://multiscalegenomics.eu/tool-schema/arguments/27/type"
+          },
+          "default": {
+            "type": "string",
+            "id": "http://multiscalegenomics.eu/tool-schema/arguments/27/default",
+            "default": "null"
+          },
+          "enum_items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "id": "http://multiscalegenomics.eu/tool-schema/arguments/27/items"
+          },
+          "maximum": {
+            "type": "integer",
+            "id": "http://multiscalegenomics.eu/tool-schema/arguments/27/maximum"
+          },
+          "minimum": {
+            "type": "integer",
+            "id": "http://multiscalegenomics.eu/tool-schema/arguments/27/minimum"
+          },
+          "required": {
+            "type": "boolean",
+            "id": "http://multiscalegenomics.eu/tool-schema/arguments/27/required",
+            "default": true
+          },
+          "allow_multiple": {
+            "type": "boolean",
+            "id": "http://multiscalegenomics.eu/tool-schema/arguments/27/allow_multiple",
+            "default": false
+          }
+        },
+        "additionalProperties":false,
+        "id": "http://multiscalegenomics.eu/tool-schema/arguments/27",
+        "required": [
+          "name",
+          "description",
+          "type"
+        ],
+          
+      },
+      "id": "http://multiscalegenomics.eu/tool-schema/arguments"
+    },
+    "control_file": {
+      "type": "string",
+      "id": "http://multiscalegenomics.eu/tool-schema/control_file",
+      "default": "null"
+    },
+    "output_files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "id": "http://multiscalegenomics.eu/tool-schema/output_files/7/name"
+          },
+          "required": {
+            "type": "boolean",
+            "id": "http://multiscalegenomics.eu/tool-schema/output_files/7/required",
+            "default": true
+          },
+          "allow_multiple": {
+            "type": "boolean",
+            "id": "http://multiscalegenomics.eu/tool-schema/output_files/7/allow_multiple",
+            "default": false
+          },
+          "file": {
+            "type": "object",
+            "properties": {
+              "file_type": {
+                "type": "string",
+                "enum": [
+                "null",
+                "FASTA",
+                "FASTQ",
+                "BAM",
+                "BAI",
+                "BED",
+                "BB",
+                "BEDGRAPH",
+                "WIG",
+                "BW",
+                "GFF",
+                "GFF3",
+                "GTF",
+                "TSV",
+                "CSV",
+                "TXT",
+                "TAR",
+                "TBI",
+                "VCF",
+                "JSON",
+                "PDB",
+                "XTC",
+                "NETCDF",
+                "DCD",
+                "TOP",
+                "TPR",
+                "PARMTOP",
+                "MDCRD",
+                "HDF5",
+                "PDF",
+                "TIFF",
+                "LIF",
+                "PNG"
+                ],
+                "id": "http://multiscalegenomics.eu/tool-schema/output_files/7/file/file_type"
+              },
+              "data_type": {
+                "type": "string",
+              "enum": [
+                "sequence_genomic",
+                "sequence_rna",
+                "sequence_dna",
+                "sequence_prot",
+                "sequence_annotation",
+                "structure",
+                "na_structure",
+                "na_traj",
+                "na_top",
+                "na_md_atom_traj_coords",
+                "na_md_atom_traj_top",
+                "na_md_cg_traj",
+                "md_restart",                
+                "data_chip_seq",
+                "data_atac_seq",
+                "data_mnase_seq",
+                "data_rna_seq",
+                "data_dna_methylation",
+                "data_fish",
+                "hic_reads",
+                "hic_contacts_matrix",
+                "hic_contacts_coverage",
+                "hic_tads_scale",
+                "hic_contacts_peaks",
+                "hic_contacts_differential",
+                "hic_directionality",
+                "chromatine_tads",
+                "chromatine_compartments",
+                "cromatine_3dmodel_ensemble",
+                "nucleosome_positioning",
+                "nucleosome_dynamics",
+                "nucleosome_gene_phasing",
+                "tss_classification_by_nucleosomes",
+                "nucleosome_free_regions",
+                "nucleosome_stiffness",
+                "tool_statistics"
+              ],
+                "id": "http://multiscalegenomics.eu/tool-schema/output_files/7/file/data_type"
+              },
+              "file_path": {
+                "type": "string",
+                "id": "http://multiscalegenomics.eu/tool-schema/output_files/7/file/file_path"
+              },
+              "compressed": {
+                "type": "string",
+                "enum": [
+                  "null",
+                  "gzip",
+                  "zip"
+                ],
+                "id": "http://multiscalegenomics.eu/tool-schema/output_files/7/file/compressed"
+              },
+              "taxon_id": {
+                    "type": "integer",
+                    "id": "http://multiscalegenomics.eu/tool-schema/output_files/7/file/taxon_id"
+                  },
+              "source_id": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "id": "http://multiscalegenomics.eu/tool-schema/output_files/7/file/source_id"
+              },
+              "meta_data ": {
+                "type": "object",
+                "properties": {
+                  "description": {
+                    "type": "string",
+                    "id": "http://multiscalegenomics.eu/tool-schema/output_files/7/file/meta_data/description",
+                    "default": "VRE tool output file"
+                  },
+                  "tool": {
+                    "type": "string",
+                    "id": "http://multiscalegenomics.eu/tool-schema/output_files/7/file/meta_data/tool"
+                  },
+                  "assembly": {
+                    "type": "string",
+                    "id": "http://multiscalegenomics.eu/tool-schema/output_files/7/file/meta_data/assembly"
+                  },
+                  "visible": {
+                    "type": "boolean",
+                    "id": "http://multiscalegenomics.eu/tool-schema/output_files/7/file/meta_data/visible",
+                    "default": true
+                  }
+                },
+                "id": "http://multiscalegenomics.eu/tool-schema/output_files/7/file/meta_data",
+                "required": [
+                  "description",
+                  "tool",
+                  "visible"
+                ]
+              }
+            },
+            "id": "http://multiscalegenomics.eu/tool-schema/output_files/7/file",
+            "required": [
+              "file_type",
+              "data_type",
+              "meta_data "
+            ]
+          }
+        },
+        "id": "http://multiscalegenomics.eu/tool-schema/output_files/7",
+        "required": [
+          "name",
+          "required",
+          "allow_multiple",
+          "file"
+        ]
+      },
+      "id": "http://multiscalegenomics.eu/tool-schema/output_files"
+    }
+  },
+  "required": [
+    "_id",
+    "name",
+    "title",
+    "owner",
+    "external",
+    "keywords",
+    "launcher",
+    "input_files",
+    "arguments",
+    "output_files"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "SGE": {
+      "properties": {
+        "queue": {
+          "type": "string",
+          "id": "http://multiscalegenomics.eu/tool-schema/definitions/SGE/queue",
+          "default":"null"
+        },
+        "executable": {
+          "type": "string",
+          "id": "http://multiscalegenomics.eu/tool-schema/definitions/SGE/executable"
+        },
+        "cpus": {
+          "type": "integer",
+          "id": "http://multiscalegenomics.eu/tool-schema/definitions/SGE/cpus"
+        },
+        "max_mem": {
+          "type": "string",
+          "id": "http://multiscalegenomics.eu/tool-schema/definitions/SGE/max_mem"
+        }
+      },
+      "required": [
+        "queue",
+        "executable"
+      ],
+      "additionalProperties": true
+    },
+    "PMES": {
+      "properties": {
+        "jobtag": {
+          "type": "string",
+          "enum": [
+            "SingleJob",
+            "COMPSsJob"
+          ],
+          "id": "http://multiscalegenomics.eu/tool-schema/definitions/PMES/jobtag"
+        },
+        "vmimage": {
+          "type": "string",
+          "id": "http://multiscalegenomics.eu/tool-schema/definitions/PMES/vmimage"
+        },
+        "vmdisk": {
+          "type": "string",
+          "id": "http://multiscalegenomics.eu/tool-schema/definitions/PMES/vmdisk"
+        },
+        "executable": {
+          "type": "string",
+          "id": "http://multiscalegenomics.eu/tool-schema/definitions/PMES/executable"
+        },
+        "cpus": {
+          "type": "integer",
+          "id": "http://multiscalegenomics.eu/tool-schema/definitions/PMES/cpus"
+        },
+        "max_mem": {
+          "type": "string",
+          "id": "http://multiscalegenomics.eu/tool-schema/definitions/PMES/max_mem"
+        }
+      },
+      "required": [
+        "jobtag",
+        "vmimage",
+        "executable"
+      ],
+      "additionalProperties": true
+    }
+  }
+}
