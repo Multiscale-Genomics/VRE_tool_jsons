@@ -72,6 +72,7 @@
           "rna",
           "visualizer",
           "3c",
+          "chromatin",
           "other"
         ]
       },
@@ -199,9 +200,11 @@
                 "hic_contacts_peaks",
                 "hic_contacts_differential",
                 "hic_directionality",
-                "chromatine_tads",
-                "chromatine_compartments",
-                "cromatine_3dmodel_ensemble",
+                "chromatin_tads",
+                "chromatin_traj",
+                "chromatin_compartments",
+                "chromatin_3dmodel_ensemble",
+                "chromatin_3dmodel",
                 "nucleosome_positioning",
                 "nucleosome_dynamics",
                 "nucleosome_gene_phasing",
@@ -211,7 +214,6 @@
                 "configuration_file",
                 "tool_statistics",
                 "tool_intermediate_file"
-                
               ]
             },
             "id": "http://multiscalegenomics.eu/tool-schema/input_files/2/data_type"
@@ -413,9 +415,11 @@
                 "hic_contacts_peaks",
                 "hic_contacts_differential",
                 "hic_directionality",
-                "chromatine_tads",
-                "chromatine_compartments",
-                "cromatine_3dmodel_ensemble",
+                "chromatin_tads",
+                "chromatin_traj",
+                "chromatin_compartments",
+                "chromatin_3dmodel_ensemble",
+                "chromatin_3dmodel",
                 "nucleosome_positioning",
                 "nucleosome_dynamics",
                 "nucleosome_gene_phasing",
