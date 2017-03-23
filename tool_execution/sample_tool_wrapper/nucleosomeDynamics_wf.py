@@ -8,7 +8,7 @@ import time
 import socket # print localhost
 import logging
 import re
-from pprint import pprint
+import pprint
 import multiprocessing
 #import psutil  # available memory
 import subprocess
@@ -71,10 +71,38 @@ class Mugparams(object):
 		logger.info("Output file directory set to %s" % out_dir)
 		
 		# Indexing config arguments by name
-    		arguments_by_name = dict((d["name"], dict(d, index=index)) for (index, d) in enumerate(args.config["arguments"]))
-		logger.debug("Configuration file arguments are %s " % arguments_by_name)
+    		arguments_by_name = dict((d["name"], d["value"]) for (index, d) in enumerate(args.config["arguments"]))
+		args.config["arguments"] = arguments_by_name
+
+		# Indexing config input_files by name (name could not be unique - because of allow_multiple)
+    		inputs_by_name = {}
+		for index,d in enumerate(args.config["input_files"]):
+			name = args.config["input_files"][index]["name"]
+			if name in inputs_by_name:
+				pprint.pprint(inputs_by_name[name])
+				if type(inputs_by_name[name] is str):
+					prev = inputs_by_name[name]
+					inputs_by_name[name]= list()
+					inputs_by_name[name].append(prev)
+				inputs_by_name[name].append(d["value"])
+			else:
+				inputs_by_name[name]=d["value"]
+		args.config["input_files"] = inputs_by_name
+		logger.debug("Configuration file arguments and input_files are:\n %s " % pprint.pformat(args.config))
+		return 1
+
+	@staticmethod
+	def process_metadata(args):
+		global out_dir
+		logger = logging.getLogger("lg")
+
+		# Indexing metadata files by file_id ([_id])
+    		metadata_by_id = dict((d["_id"], dict(d)) for (index, d) in enumerate(args.metadata))
+		args.metadata = metadata_by_id
+		logger.debug("VRE metadata for input_files is:\n %s " % pprint.pformat(args.metadata))
 	
 		return 1
+
 
 
 
@@ -87,10 +115,12 @@ def run_pipeline(args, num_cores):
 	logger  = logging.getLogger("lg")
 
 	print "#### CONFIG FILE CONTAINS";	
-	for input in args.config["input_files"]:
-		print "\tID=%s\t\tID=%s" % (input["name"], input["value"])
-	for input in args.config["arguments"]:
-		print "\tID=%s\t\tID=%s" % (input["name"], input["value"])
+	for in_name in args.config["input_files"]:
+		print "\tID=%s\t\tVALUE=%s" % (in_name, args.config["input_files"][in_name])
+	for arg_name in args.config["arguments"]:
+		print "\tID=%s\t\tVALUE=%s" % (arg_name, args.config["arguments"][arg_name])
+
+	mock_files = ["NR_sample_cellcycle_G1.gff"]
 
 	source_dir = "/orozco/services/Rdata/Web/USERS/ND57d01d39a0810/sample/"
 	extensions = ("*.gff","*.RData","*.bw","*csv","*.png")
@@ -139,28 +169,61 @@ def prepare_results(args):
 		for extension in extensions:
 			files.extend(glob.glob(out_dir+"/"+extension))
 	
-		# Set metadata required for each output file
+		# Set metadata required for each GFF and BW output file
 		for fil in files:
 			result = {}
 
-			# Set name. Should coincide with tool.json. Here, if file="NR_blabla.gff", name= "ND_gff"
-			p = re.compile('\/([^_\/]*)_[^\/]+\.(.*)$')
+			# Set name
+			# Should coincide with tool.json. In nucldyn, if fil="NR_blabla.gff", output_files.name="NR_gff"
+			p = re.compile('\/([^_\/]*)_([^\/]+)\.(.*)$')
 			t = p.findall(fil)
 			s = p.search(fil)
-			prefix = s.group(1)
-			ext    = s.group(2)
-			out_name = s.group(1) + "_" + s.group(2)
+			prefix    = s.group(1)
+			rootname  = s.group(2)
+			extension = s.group(3)
+
+			out_name = prefix + "_" + extension
 			result["name"]      = out_name
 
-			# Set file_path. Absolute path. Should be better relative to root_dir?
+			# Set file_path
+			# Absolute path. Should be better relative to root_dir?
 			result["file_path"] = fil
 
-			# Set source_id. Array. Provenance of file, fileIds of the inputs_files which this file derives from. Here, the corresponding MNAse file_id
-			result["source_id"] = ["TODO"]
+			# Set source_id & taxon_id
+			# source_id is the list of inputs_files (file_ids) that this file derives from. In nucldyn, file="NR_blabla.gff" derives from "blabla.bam" (except 'ND_gff')
+			result["source_id"] = []
+			if out_name == "ND_gff":
+				for input_id,file_id in args.config['input_files'].iteritems():
+					if (input_id == "condition1" or input_id == "condition2"):
+						result["source_id"].append(file_id);
+			else:
+				for file_id,file_meta in args.metadata.iteritems():
+					input_file_path = file_meta['file_path']
+					input_basename  = os.path.basename(input_file_path)
+					input_rootname  = os.path.splitext(input_basename)[0]
+					
+					if rootname == input_rootname:
+						result["source_id"].append(file_id)
+
+			# Set taxon_id
+			# taxon_id is inherited from the input file (i.e the source_id)
 			result["taxon_id"]  = 0
+			if result["source_id"]:
+				for file_id in result["source_id"]:
+					if args.metadata[file_id]["taxon_id"]:
+						result["taxon_id"] = args.metadata[file_id]["taxon_id"]
+						break
+					
+			# Set meta_data->assembly
+			# taxon_id is inherited from the input file (i.e the source_id)
 			result["meta_data"] ={}
-			result["meta_data"]['assembly']= "R64-1-1"
+			result["meta_data"]['assembly']= ""
+			if result["source_id"]:
+				for file_id in result["source_id"]:
+					if args.metadata[file_id]["meta_data"]["assembly"]:
+						result["meta_data"]['assembly']= args.metadata[file_id]["meta_data"]["assembly"]
 			
+			# Append output_file metadata into JSON data
 			json_data['output_files'].append(result)
 			
 
@@ -223,9 +286,11 @@ def main():
 				help="JSON file containing workflow parameters")
 	parser.add_argument("--root_dir",  required=True,  type=Mugparams.readable_dir, metavar="ABS_PATH",
 				help="Absolute path of the user data directory.")
+	parser.add_argument("--public_dir",  required=False,  type=Mugparams.readable_dir, metavar="PUBLIC_PATH",
+				help="Absolute path of the MuG public directory (with reference genome data, etc).")
 	parser.add_argument("--metadata",  required=True,  type=Mugparams.check_json, metavar="METADATA_JSON",
 				help="JSON file containing MuG metadata files")
-	parser.add_argument("--out_metadata",  required=True,  type=Mugparams.writeable_file, metavar="RESULTS_JSON",
+	parser.add_argument("--out_metadata",  required=False,  type=Mugparams.writeable_file, metavar="RESULTS_JSON",
 				help="JSON file containing results metadata")
 	parser.add_argument("-v", "--verbose", required=False, action="store_true", 
 				help="increase output verbosity")
@@ -244,6 +309,7 @@ def main():
 
 	# Parse config
 	Mugparams.process_arguments(args)
+	Mugparams.process_metadata(args)
 
 
 	# Print host info

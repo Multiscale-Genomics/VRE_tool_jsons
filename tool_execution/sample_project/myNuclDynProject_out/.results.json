@@ -3,31 +3,143 @@
         {
             "name": "NR_gff",
             "source_id": [
-                "TODO"
+                "MuGUSER57ecf22d91df3_58b975fba8d344.30112648"
             ],
-            "taxon_id": 0,
+            "taxon_id": "4932",
             "meta_data": {
                 "assembly": "R64-1-1"
             },
-            "file_path": "/absolute/path/MuG/MuG_userdata/MuGUSER57ecf22d91df3/myNuclDynProject/NR_sample_cellcycle_G1.gff"
+            "file_path": "/orozco/services/Rdata/MuG/MuG_userdata//MuGUSER57ecf22d91df3/pyNewProject/NR_sample_cellcycle_M.gff"
         },
         {
-            "name": "NR_gff",
+            "name": "NFR_gff",
+            "source_id": [
+                "MuGUSER57ecf22d91df3_58b96fdc22eba8.25657003"
+            ],
+            "taxon_id": "4932",
+            "meta_data": {
+                "assembly": "R64-1-1"
+            },
+            "file_path": "/orozco/services/Rdata/MuG/MuG_userdata//MuGUSER57ecf22d91df3/pyNewProject/NFR_sample_cellcycle_G1.gff"
+        },
+        {
+            "name": "ND_gff",
+            "source_id": [
+                "MuGUSER57ecf22d91df3_58b975fba8d344.30112648",
+                "MuGUSER57ecf22d91df3_58b96fdc22eba8.25657003"
+            ],
+            "taxon_id": "4932",
+            "meta_data": {
+                "assembly": "R64-1-1"
+            },
+            "file_path": "/orozco/services/Rdata/MuG/MuG_userdata//MuGUSER57ecf22d91df3/pyNewProject/ND_(C1)sample_cellcycle_G1-(C2)sample_cellcycle_M.gff"
+        },
+        {
+            "name": "NFR_gff",
+            "source_id": [
+                "MuGUSER57ecf22d91df3_58b975fba8d344.30112648"
+            ],
+            "taxon_id": "4932",
+            "meta_data": {
+                "assembly": "R64-1-1"
+            },
+            "file_path": "/orozco/services/Rdata/MuG/MuG_userdata//MuGUSER57ecf22d91df3/pyNewProject/NFR_sample_cellcycle_M.gff"
+        },
+
+        {
+            "source_id": [
+                "MuGUSER57ecf22d91df3_58b975fba8d344.30112648"
+            ],
+            "taxon_id": "4932",
+            "meta_data": {
+                "assembly": "R64-1-1"
+            },
+            "name": "TSS_gff",
+            "file_path": "/orozco/services/Rdata/MuG/MuG_userdata//MuGUSER57ecf22d91df3/pyNewProject/TSS_sample_cellcycle_M.gff"
+        },
+        {
+            "source_id": [
+                "MuGUSER57ecf22d91df3_58b96fdc22eba8.25657003"
+            ],
+            "taxon_id": "4932",
+            "meta_data": {
+                "assembly": "R64-1-1"
+            },
+            "name": "TSS_gff",
+            "file_path": "/orozco/services/Rdata/MuG/MuG_userdata//MuGUSER57ecf22d91df3/pyNewProject/TSS_sample_cellcycle_G1.gff"
+        },
+        {
+            "source_id": [
+                "MuGUSER57ecf22d91df3_58b96fdc22eba8.25657003"
+            ],
+            "taxon_id": "4932",
+            "meta_data": {
+                "assembly": "R64-1-1"
+            },
+            "name": "P_gff",
+            "file_path": "/orozco/services/Rdata/MuG/MuG_userdata//MuGUSER57ecf22d91df3/pyNewProject/P_sample_cellcycle_G1.gff"
+        },
+        {
+            "source_id": [
+                "MuGUSER57ecf22d91df3_58b975fba8d344.30112648"
+            ],
+            "taxon_id": "4932",
+            "meta_data": {
+                "assembly": "R64-1-1"
+            },
+            "name": "P_gff",
+            "file_path": "/orozco/services/Rdata/MuG/MuG_userdata//MuGUSER57ecf22d91df3/pyNewProject/P_sample_cellcycle_M.gff"
+        },
+        {
+            "source_id": [
+                "MuGUSER57ecf22d91df3_58b975fba8d344.30112648"
+            ],
+            "taxon_id": "4932",
+            "meta_data": {
+                "assembly": "R64-1-1"
+            },
+            "name": "STF_gff",
+            "file_path": "/orozco/services/Rdata/MuG/MuG_userdata//MuGUSER57ecf22d91df3/pyNewProject/STF_sample_cellcycle_M.gff"
+        },
+        {
+            "source_id": [
+                "MuGUSER57ecf22d91df3_58b96fdc22eba8.25657003"
+            ],
+            "taxon_id": "4932",
+            "meta_data": {
+                "assembly": "R64-1-1"
+            },
+            "name": "STF_gff",
+            "file_path": "/orozco/services/Rdata/MuG/MuG_userdata//MuGUSER57ecf22d91df3/pyNewProject/STF_sample_cellcycle_G1.gff"
+        },
+        {
+            "source_id": [
+                "MuGUSER57ecf22d91df3_58b96fdc22eba8.25657003"
+            ],
+            "taxon_id": "4932",
+            "meta_data": {
+                "assembly": "R64-1-1"
+            },
+            "name": "P_bw",
+            "file_path": "/orozco/services/Rdata/MuG/MuG_userdata//MuGUSER57ecf22d91df3/pyNewProject/P_sample_cellcycle_G1.bw"
+        },
+        {
+            "source_id": [
+                "MuGUSER57ecf22d91df3_58b975fba8d344.30112648"
+            ],
+            "taxon_id": "4932",
+            "meta_data": {
+                "assembly": "R64-1-1"
+            },
+            "name": "P_bw",
+            "file_path": "/orozco/services/Rdata/MuG/MuG_userdata//MuGUSER57ecf22d91df3/pyNewProject/P_sample_cellcycle_M.bw"
+        },
+        {
             "source_id": [
                 "TODO"
             ],
-            "taxon_id": 0,
-            "meta_data": {
-                "assembly": "R64-1-1"
-            },
-            "file_path": "/absolute/path/MuG/MuG_userdata/MuGUSER57ecf22d91df3/myNuclDynProject/NR_sample_cellcycle_M.gff"
-        },
-        {
             "name": "statistics",
-            "source_id": [
-                "TODO"
-            ],
-            "file_path": "/absolute/path/MuG/MuG_userdata/MuGUSER57ecf22d91df3/myNuclDynProject/results.tar.gz"
+            "file_path": "/orozco/services/Rdata/Web/apps/nucleServ_MuG/results.tar.gz"
         }
     ]
 }

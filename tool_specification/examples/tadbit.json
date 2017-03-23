@@ -65,6 +65,21 @@
             "type": "string",
             "required": false
         },
+        {
+            "name": "mapping:refGenome",
+            "description": "Reference Genome",
+            "help": "",
+            "type": "enum",
+	    "enum_items":{
+              "name":["refGenomes/Homo_sapiens/hg19/GEM/hg19.gem",
+		      "refGenomes/Saccharomyces_cerevisiae/R64-1-1/GEM/R64-1-1.gem",
+		      "refGenomes/Drosophila_melanogaster/r5.01/GEM/r5.01.gem"],
+              "description":["Homo Sapiens (hg19)",
+			     "Saccharomyces Cerevisiae (R64.1.1)",
+			     "Drosophila Melanogaster (r5.01)"]
+            },
+            "required": true
+        },
         {}
     ],
     "output_files": [
