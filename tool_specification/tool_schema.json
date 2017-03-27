@@ -153,6 +153,7 @@
                 "VCF",
                 "JSON",
 		"GEM",
+		"BWT",
                 "PDB",
                 "XTC",
                 "NETCDF",
@@ -212,6 +213,7 @@
                 "tss_classification_by_nucleosomes",
                 "nucleosome_free_regions",
                 "nucleosome_stiffness",
+		"docking_ranking",
                 "configuration_file",
                 "tool_statistics",
                 "tool_intermediate_file"
@@ -372,6 +374,7 @@
                 "VCF",
                 "JSON",
 		"GEM",
+		"BWT",
                 "PDB",
                 "XTC",
                 "NETCDF",
@@ -428,6 +431,7 @@
                 "tss_classification_by_nucleosomes",
                 "nucleosome_free_regions",
                 "nucleosome_stiffness",
+		"docking_ranking",
                 "configuration_file",
                 "tool_statistics",
                 "tool_intermediate_file"
@@ -458,7 +462,7 @@
                 },
                 "id": "http://multiscalegenomics.eu/tool-schema/output_files/7/file/source_id"
               },
-              "meta_data ": {
+              "meta_data": {
                 "type": "object",
                 "properties": {
                   "description": {
@@ -492,7 +496,7 @@
             "required": [
               "file_type",
               "data_type",
-              "meta_data "
+              "meta_data"
             ]
           }
         },
