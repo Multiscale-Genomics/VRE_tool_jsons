@@ -49,17 +49,27 @@
         "url": {
           "type": "string",
           "id": "http://multiscalegenomics.eu/tool-schema/owner/url"
-        }
+        },
+        "user": {
+          "type": "string",
+          "id": "http://multiscalegenomics.eu/tool-schema/owner/user"
+       }
       },
       "id": "http://multiscalegenomics.eu/tool-schema/owner",
       "required": [
         "institution",
-        "contact"
+        "contact",
+	"user"
       ]
     },
     "external": {
       "type": "boolean",
       "id": "http://multiscalegenomics.eu/tool-schema/external",
+      "default": true
+    },
+    "has_custom_viewer": {
+      "type": "boolean",
+      "id": "http://multiscalegenomics.eu/tool-schema/has_custom_viewer",
       "default": true
     },
     "keywords": {
@@ -73,6 +83,7 @@
           "visualizer",
           "3c",
           "chromatin",
+          "interactions",
           "other"
         ]
       },
@@ -162,6 +173,8 @@
                 "TPR",
                 "PARMTOP",
                 "MDCRD",
+		"RST",
+		"CPT",
                 "HDF5",
                 "PDF",
                 "TIFF",
@@ -183,7 +196,10 @@
                 "sequence_annotation",
 		"sequence_mapping_index",
                 "structure",
+                "prot_dna_structure",
+                "prot_structure",
                 "na_structure",
+                "na_traj",
                 "na_traj_coords",
                 "na_traj_top",
                 "na_md_atom_traj_coords",
@@ -216,6 +232,7 @@
                 "nucleosome_free_regions",
                 "nucleosome_stiffness",
 		"docking_ranking",
+		"prot_dna_specificity",
                 "configuration_file",
                 "tool_statistics",
                 "tool_intermediate_file"
@@ -385,6 +402,8 @@
                 "TPR",
                 "PARMTOP",
                 "MDCRD",
+		"RST",
+		"CPT",
                 "HDF5",
                 "PDF",
                 "TIFF",
@@ -403,7 +422,10 @@
                 "sequence_annotation",
 		"sequence_mapping_index",
                 "structure",
+                "prot_dna_structure",
+                "prot_structure",
                 "na_structure",
+                "na_traj",
                 "na_traj_coords",
                 "na_traj_top",
                 "na_md_atom_traj_coords",
@@ -436,6 +458,7 @@
                 "nucleosome_free_regions",
                 "nucleosome_stiffness",
 		"docking_ranking",
+		"prot_dna_specificity",
                 "configuration_file",
                 "tool_statistics",
                 "tool_intermediate_file"
