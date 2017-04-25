@@ -2,12 +2,13 @@
     "_id": "dnadyn",
     "name": "MC-DNA",
     "title": "MC DNA Dynamics",
-    "short_description": "TODO Short description goes here",
+    "short_description": "MC-DNA is a coarse-grained DNA model in which the internal dynamics are described with helical parameters.",
     "owner": {
         "institution": "IRB",
         "author": "Jürgen Walther",
         "contact": "juergen.walther@irbbarcelona.org",
-        "url": "http://mmb.pcb.ub.es/www/"
+        "url": "http://mmb.pcb.ub.es/www/",
+	"user":"juergen.walther@irbbarcelona.org"
     },
     "external": true,
     "keywords": [
@@ -16,7 +17,7 @@
     "launcher": {
         "type": "SGE",
         "queue": "naFlex.q",
-        "executable": "/TODO/path/to/VM/wrapper",
+        "executable": "/home/MuG/dnadyn_wf.py",
         "cpus": 1
     },
     "input_files": [
@@ -24,36 +25,38 @@
             "name": "sequence",
             "description": "DNA sequence",
             "help": "DNA sequence help",
-            "file_type": ["TXT"],
-            "data_type": ["sequence_dna"],
+            "file_type": [
+                "TXT"
+            ],
+            "data_type": [
+                "sequence_dna"
+            ],
             "required": true,
             "allow_multiple": false
         }
     ],
     "arguments": [
         {
-            "name": "createStructure",
-            "description": "Create equilibrium structure",
-            "help": "TODO Help for create equilibrium structure",
-            "type": "boolean",
+            "name": "operations",
+            "description": "Operations",
+            "help": "Type of model to be created. Select the operation you want to execute",
+            "type": "enum_multiple",
+            "enum_items": {
+                "name": [
+                    "createTrajectory",
+                    "createStructure"
+                ]
+            },
             "required": true,
-            "default": "on"
+            "default": ""
         },
-        {
-            "name": "createTrajectory",
-            "description": "Create multiple structures",
-            "help": "TODO Help for create multiple  structure",
-            "type": "boolean",
-            "required": true,
-            "default": "off"
-                                },
         {
             "name": "createTrajectory:numStruct",
             "description": "Number of structures",
-            "help": "TODO Help for Number of structures ",
+            "help": "bla bla",
             "type": "integer",
-            "minimum":1,
-            "maximum":500,
+            "minimum": 1,
+            "maximum": 500,
             "required": true,
             "default": "100"
         }
@@ -68,8 +71,23 @@
                 "file_type": "PDB",
                 "data_type": "na_structure",
                 "compressed": "null",
-                "meta_data ": {
+                "meta_data": {
                     "description": "Equilibrium structure",
+                    "tool": "dnadyn",
+                    "visible": true
+                }
+            }
+        },
+        {
+            "name": "dna_trajectory_structure",
+            "required": false,
+            "allow_multiple": false,
+            "file": {
+                "file_type": "PDB",
+                "data_type": "na_structure",
+                "compressed": "null",
+                "meta_data": {
+                    "description": "Final DNA structure",
                     "tool": "dnadyn",
                     "visible": true
                 }
@@ -81,9 +99,9 @@
             "allow_multiple": false,
             "file": {
                 "file_type": "DCD",
-                "data_type": "na_traj",
+                "data_type": "na_traj_coords",
                 "compressed": "null",
-                "meta_data ": {
+                "meta_data": {
                     "description": "DNA trajectory",
                     "tool": "dnadyn",
                     "visible": true
@@ -95,25 +113,26 @@
             "required": false,
             "allow_multiple": false,
             "file": {
-                "file_type": "TOP",
-                "data_type": "na_top",
+                "file_type": "PARMTOP",
+                "data_type": "na_traj_top",
                 "compressed": "null",
-                "meta_data ": {
-                    "description": "DNA topology",
+                "meta_data": {
+                    "description": "DNA trajectory",
                     "tool": "dnadyn",
                     "visible": true
                 }
             }
-                                },
+        },
         {
             "name": "summary",
             "required": true,
             "allow_multiple": false,
+            "custom_visualizer": true,
             "file": {
                 "file_type": "TAR",
                 "data_type": "tool_statistics",
                 "compressed": "gzip",
-                "meta_data ": {
+                "meta_data": {
                     "description": "dnadyn summary plots",
                     "tool": "dnadyn",
                     "visible": false
