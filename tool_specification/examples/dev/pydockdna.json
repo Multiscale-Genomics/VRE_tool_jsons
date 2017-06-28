@@ -1,0 +1,163 @@
+{
+    "_id": "pydockdna",
+    "name": "pyDockDNA",
+    "title": "Protein-DNA docking",
+    "short_description": "PyDockDNA is a tool for the structural prediction of protein-DNA interactions",
+    "owner": {
+        "institution": "BSC",
+        "author": "Brian Jiménez-García",
+        "contact": "brian.jimenez@bsc.es",
+        "url": "https://life.bsc.es/pid/pidweb/default/tools",
+        "user": "bjimenez@bsc.es"
+    },
+    "external": true,
+    "keywords": [
+        "protein",
+        "dna"
+    ],
+    "infrastructure": {
+        "memory": "4.0",
+        "cpus": 4,
+        "executable": "/home/user/bin/mug/pydockdna",
+        "clouds": {
+            "mug-bsc": {
+                "launcher": "PMES",
+                "imageName": "uuid_pydockdna_51",
+                "workflowType": "Single",
+                "default_cloud": true
+            },
+            "mug-irb": {
+                "launcher": "SGE",
+                "queue": "pydock.q"
+            }
+        }
+    },
+    "input_files": [
+        {
+            "name": "receptor",
+            "description": "Receptor PDB structure",
+            "help": "PDB structure help",
+            "file_type": [
+                "PDB"
+            ],
+            "data_type": [
+                "prot_structure"
+            ],
+            "required": true,
+            "allow_multiple": false
+        },
+        {
+            "name": "ligand",
+            "description": "Ligand PDB structure",
+            "help": "PDB structure help",
+            "file_type": [
+                "PDB"
+            ],
+            "data_type": [
+                "na_structure",
+                "prot_structure"
+            ],
+            "required": true,
+            "allow_multiple": false
+        }
+    ],
+    "arguments": [
+        {
+            "name": "scoring",
+            "description": "Available energetic scoring functions",
+            "help": "pyDockDNA is able to use different scoring functions in the step of re-scoring the generated docking poses",
+            "type": "enum",
+            "enum_items": {
+                "description": [
+                    "pyDock-DNA"
+                ],
+                "name": [
+                    "pydockdna"
+                ]
+            },
+            "required": true,
+            "default": "PyDock DNA"
+        },
+        {
+            "name": "models",
+            "description": "Number of structures to model",
+            "help": "The number of generated models by this tool",
+            "type": "enum",
+            "enum_items": {
+                "name": [
+                    "1",
+                    "5",
+                    "10",
+                    "50"
+                ]
+            },
+            "minimum": 1,
+            "maximum": 50,
+            "required": true,
+            "default": "10"
+        }
+    ],
+    "control_file": ".results.json",
+    "output_files": [
+        {
+            "name": "energy_table",
+            "required": true,
+            "allow_multiple": false,
+            "file": {
+                "file_type": "CSV",
+                "data_type": "docking_ranking",
+                "compressed": "null",
+                "meta_data": {
+                    "description": "Ranking of docking poses",
+                    "tool": "pydockdna",
+                    "visible": true
+                }
+            }
+        },
+        {
+            "name": "top_structures",
+            "required": true,
+            "allow_multiple": false,
+            "file": {
+                "file_type": "PDB",
+                "data_type": "structure",
+                "compressed": "null",
+                "meta_data": {
+                    "description": "Top 10 predictions",
+                    "tool": "pydockdna",
+                    "visible": true
+                }
+            }
+        },
+        {
+            "name": "top10",
+            "required": true,
+            "allow_multiple": true,
+            "file": {
+                "file_type": "PDB",
+                "data_type": "prot_dna_structure",
+                "compressed": "null",
+                "meta_data": {
+                    "description": "Top10 predicted structures",
+                    "tool": "pydockdna",
+                    "visible": true
+                }
+            }
+        },
+        {
+            "name": "results",
+            "required": true,
+            "allow_multiple": false,
+            "file": {
+                "file_type": "TAR",
+                "data_type": "tool_statistics",
+                "compressed": "gzip",
+                "meta_data": {
+                    "description": "Compressed results of the tool",
+                    "tool": "pydockdna",
+                    "visible": false
+                }
+            }
+        }
+    ]
+}
