@@ -1,0 +1,96 @@
+{
+    "input_files": [
+        {
+            "name": "ligand",
+            "value": "MuGUSER59808d047dddf_599ad50c8cdf92.63004353",
+            "required": true,
+            "allow_multiple": false
+        },
+        {
+            "name": "receptor",
+            "value": "MuGUSER59808d047dddf_599ad50cb9ca79.22047460",
+            "required": true,
+            "allow_multiple": false
+        }
+    ],
+    "arguments": [
+        {
+            "name": "project",
+            "value": "run001"
+        },
+        {
+            "name": "description",
+            "value": "Execution directory for tool pyDockDNA"
+        },
+        {
+            "name": "models",
+            "value": "1"
+        },
+        {
+            "name": "scoring",
+            "value": "pydockdna"
+        }
+    ],
+    "output_files": [
+        {
+            "name": "energy_table",
+            "required": true,
+            "allow_multiple": false,
+            "file": {
+                "file_type": "CSV",
+                "data_type": "docking_ranking",
+                "compressed": "null",
+                "meta_data": {
+                    "description": "Ranking of docking poses",
+                    "tool": "pydockdna",
+                    "visible": true
+                }
+            }
+        },
+        {
+            "name": "top_structures",
+            "required": true,
+            "allow_multiple": false,
+            "file": {
+                "file_type": "PDB",
+                "data_type": "structure",
+                "compressed": "null",
+                "meta_data": {
+                    "description": "Top 10 predictions",
+                    "tool": "pydockdna",
+                    "visible": true
+                }
+            }
+        },
+        {
+            "name": "top10",
+            "required": true,
+            "allow_multiple": true,
+            "file": {
+                "file_type": "PDB",
+                "data_type": "prot_dna_structure",
+                "compressed": "null",
+                "meta_data": {
+                    "description": "Top10 predicted structures",
+                    "tool": "pydockdna",
+                    "visible": true
+                }
+            }
+        },
+        {
+            "name": "results",
+            "required": true,
+            "allow_multiple": false,
+            "file": {
+                "file_type": "TAR",
+                "data_type": "tool_statistics",
+                "compressed": "gzip",
+                "meta_data": {
+                    "description": "Compressed results of the tool",
+                    "tool": "pydockdna",
+                    "visible": false
+                }
+            }
+        }
+    ]
+}

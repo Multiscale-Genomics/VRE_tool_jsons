@@ -1,0 +1,59 @@
+[
+    {
+        "jobName": "run001",
+        "wallTime": "1440",
+        "memory": "4.0",
+        "cores": 4,
+        "minimumVMs": "1",
+        "maximumVMs": "1",
+        "limitVMs": "1",
+        "initialVMs": "1",
+        "disk": "1.0",
+        "inputPaths": [],
+        "outputPaths": [],
+        "infrastructure": "mug-bsc",
+        "mountPoints": [
+            {
+                "target": "/MUG_USERDATA",
+                "device": "/data/cloud/apps/noroot/mug/MuG_userdata/MuGUSER59808d047dddf",
+                "permissions": "rw"
+            },
+            {
+                "target": "/MUG_PUBLIC",
+                "device": "/data/cloud/apps/noroot/mug/MuG_public",
+                "permissions": "r"
+            }
+        ],
+        "numNodes": "1",
+        "user": {
+            "username": "vre",
+            "credentials": {
+                "pem": "/home/pmes/certs/pmes.pem",
+                "key": "/home/pmes/certs/pmes.key",
+                "uid": "9903",
+                "gid": "1400",
+                "token": ""
+            }
+        },
+        "img": {
+            "imageName": "uuid_pydockdna_51",
+            "imageType": "small"
+        },
+        "app": {
+            "name": "pydockdna",
+            "target": "/home/user/bin/mug",
+            "source": "pydockdna",
+            "args": {
+                "config": "/MUG_USERDATA/run001/.config.json",
+                "root_dir": "/MUG_USERDATA",
+                "public_dir": "/MUG_PUBLIC",
+                "metadata": "/MUG_USERDATA/run001/.input_metadata.json",
+                "out_metadata": "/MUG_USERDATA/run001/.results.json"
+            },
+            "type": "Single"
+        },
+        "compss_flags": {
+            "flag": " --summary"
+        }
+    }
+]
