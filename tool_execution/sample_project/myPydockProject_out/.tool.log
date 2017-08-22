@@ -1,0 +1,32 @@
+##### STDOUT ###############################
+[WORKSPACE] Started
+[WORKSPACE] Finished
+[SETUP] Started
+Waiting for pid 2523
+Waiting for pid 2524
+[SETUP] Finished
+[SAMPLING] Started
+Waiting for pid 2534
+Waiting for pid 2606
+[SAMPLING] Finished
+[SCORING] Started
+Waiting for pid 2613
+[SCORING] Finished
+##### STDERR ###############################
+Warning: Permanently added '192.168.122.24' (ECDSA) to the list of known hosts.
+bash: cannot set terminal process group (-1): Inappropriate ioctl for device
+bash: no job control in this shell
+bash: /opt/COMPSs/compssenv: No such file or directory
+bash: /opt/COMPSs/compssenv: No such file or directory
+bash: /opt/COMPSs/compssenv: No such file or directory
+bash: /opt/COMPSs/compssenv: No such file or directory
+bash: /opt/COMPSs/compssenv: No such file or directory
+bash: /opt/COMPSs/compssenv: No such file or directory
+bash: /opt/COMPSs/compssenv: No such file or directory
+bash: /opt/COMPSs/compssenv: No such file or directory
+bash: /opt/COMPSs/compssenv: No such file or directory
+bash: /opt/COMPSs/compssenv: No such file or directory
+bash: /opt/COMPSs/compssenv: No such file or directory
+bash: /opt/COMPSs/compssenv: No such file or directory
+Wrong parameters
+ERROR: Scoring process, energy table file not found
