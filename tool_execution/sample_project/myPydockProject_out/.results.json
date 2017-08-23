@@ -1,0 +1,132 @@
+{
+"output_files": [                                                    
+        {                                                                                                                                                                              	            "name": "top_structures",                                                                                                                                                                                                       
+            "source_id": [                                                                                                                                                                              "MuGUSER59808d047dddf_599ad50c8cdf92.63004353","MuGUSER59808d047dddf_599ad50cb9ca79.22047460"
+            ],
+            "taxon_id": "9606",
+            "meta_data": {
+            },
+            "file_path": "run001/top_structures.pdb"
+        },
+        {
+            "name": "results",
+            "source_id": [
+                "MuGUSER59808d047dddf_599ad50c8cdf92.63004353","MuGUSER59808d047dddf_599ad50cb9ca79.22047460"
+            ],
+            "taxon_id": "9606",
+            "meta_data": {
+            },
+            "file_path": "run001/4a_pydockdna_3mfk.tgz"
+        },
+        {
+            "name": "energy_table",
+            "source_id": [
+                "MuGUSER59808d047dddf_599ad50c8cdf92.63004353","MuGUSER59808d047dddf_599ad50cb9ca79.22047460"
+            ],
+            "taxon_id": "9606",
+            "meta_data": {
+            },
+            "file_path": "run001/result.csv"
+        },
+        {
+            "name": "top10",
+            "source_id": [
+                "MuGUSER59808d047dddf_599ad50c8cdf92.63004353","MuGUSER59808d047dddf_599ad50cb9ca79.22047460"
+            ],
+            "taxon_id": "9606",
+            "meta_data": {
+            },
+            "file_path": "run001/top_1.pdb"
+        },
+        {
+            "name": "top10",
+            "source_id": [
+                "MuGUSER59808d047dddf_599ad50c8cdf92.63004353","MuGUSER59808d047dddf_599ad50cb9ca79.22047460"
+            ],
+            "taxon_id": "9606",
+            "meta_data": {
+            },
+            "file_path": "run001/top_2.pdb"
+        },
+        {
+            "name": "top10",
+            "source_id": [
+                "MuGUSER59808d047dddf_599ad50c8cdf92.63004353","MuGUSER59808d047dddf_599ad50cb9ca79.22047460"
+            ],
+            "taxon_id": "9606",
+            "meta_data": {
+            },
+            "file_path": "run001/top_3.pdb"
+        },
+        {
+            "name": "top10",
+            "source_id": [
+                "MuGUSER59808d047dddf_599ad50c8cdf92.63004353","MuGUSER59808d047dddf_599ad50cb9ca79.22047460"
+            ],
+            "taxon_id": "9606",
+            "meta_data": {
+            },
+            "file_path": "run001/top_4.pdb"
+        },
+        {
+            "name": "top10",
+            "source_id": [
+                "MuGUSER59808d047dddf_599ad50c8cdf92.63004353","MuGUSER59808d047dddf_599ad50cb9ca79.22047460"
+            ],
+            "taxon_id": "9606",
+            "meta_data": {
+            },
+            "file_path": "run001/top_5.pdb"
+        },
+        {
+            "name": "top10",
+            "source_id": [
+                "MuGUSER59808d047dddf_599ad50c8cdf92.63004353","MuGUSER59808d047dddf_599ad50cb9ca79.22047460"
+            ],
+            "taxon_id": "9606",
+            "meta_data": {
+            },
+            "file_path": "run001/top_6.pdb"
+        },
+        {
+            "name": "top10",
+            "source_id": [
+                "MuGUSER59808d047dddf_599ad50c8cdf92.63004353","MuGUSER59808d047dddf_599ad50cb9ca79.22047460"
+            ],
+            "taxon_id": "9606",
+            "meta_data": {
+            },
+            "file_path": "run001/top_7.pdb"
+        },
+        {
+            "name": "top10",
+            "source_id": [
+                "MuGUSER59808d047dddf_599ad50c8cdf92.63004353","MuGUSER59808d047dddf_599ad50cb9ca79.22047460"
+            ],
+            "taxon_id": "9606",
+            "meta_data": {
+            },
+            "file_path": "run001/top_8.pdb"
+        },
+        {
+            "name": "top10",
+            "source_id": [
+                "MuGUSER59808d047dddf_599ad50c8cdf92.63004353","MuGUSER59808d047dddf_599ad50cb9ca79.22047460"
+            ],
+            "taxon_id": "9606",
+            "meta_data": {
+            },
+            "file_path": "run001/top_9.pdb"
+        },
+        {
+            "name": "top10",
+            "source_id": [
+                "MuGUSER59808d047dddf_599ad50c8cdf92.63004353","MuGUSER59808d047dddf_599ad50cb9ca79.22047460"
+            ],
+            "taxon_id": "9606",
+            "meta_data": {
+            },
+            "file_path": "run001/top_10.pdb"
+        }
+        ]
+}
