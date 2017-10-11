@@ -110,9 +110,7 @@
           "dna",
           "rna",
           "visualizer",
-          "3c",
           "chromatin",
-          "interactions",
           "other"
         ]
       },
@@ -168,7 +166,7 @@
                 "PARMTOP",
                 "PDB",
                 "PDF",
-                "PICKEL",
+                "PICKLE",
                 "PNG",
                 "RDATA",
                 "RST",
@@ -402,7 +400,7 @@
                   "PARMTOP",
                   "PDB",
                   "PDF",
-                  "PICKEL",
+                  "PICKLE",
                   "PNG",
                   "RDATA",
                   "RST",
