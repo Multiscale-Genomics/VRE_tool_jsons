@@ -1,0 +1,14 @@
+# 
+# 
+# 
+# Anything that PMES process collects from the STDOUT or
+# the STDERR end up written in this file.
+#
+# MuGVRE reads it and the end user can monitor tool task 
+# advances while the execution is running clicking on the
+# 'information' icon next to the run folder
+#
+# If the execution goes wrong, this file is the one listed
+# at user's workspace to report error messages
+#
+#

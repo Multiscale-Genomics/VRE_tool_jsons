@@ -1,0 +1,83 @@
+[
+    {
+        "_id": "MuGUSER5a394e70646c9_5a65e36a410ed0.92599619",
+        "file_path": "/orozco/services/MuGdev/MuG_userdata/uploads/Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa",
+        "file_type": "FASTA",
+        "data_type": "sequence_cdna",
+        "compressed": 0,
+        "user_id": "MuGUSER5a394e70646c9",
+        "creation_time": {
+            "sec": 1511222204,
+            "usec": 0
+        },
+        "taxon_id": "4932",
+        "meta_data": {
+            "size": 11944594,
+            "parentDir": "/orozco/services/MuGdev/MuG_userdata/MuGUSER5a394e70646c9/uploads",
+            "expiration": {
+                "sec": 1519171004,
+                "usec": 0
+            },
+            "validated": 1,
+            "visible": true,
+            "taxon_id": "4932",
+            "description": "File imported from URL 'http://ftp.ensemblorg.ebi.ac.uk/pub/current_fasta/saccharomyces_cerevisiae/cdna/Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa.gz'",
+            "assembly": "R64-1-1"
+        },
+        "sources": []
+    },
+    {
+        "_id": "MuGUSER5a394e70646c9_5a65d5f3d24828.04576595",
+        "file_path": "/orozco/services/MuGdev/MuG_userdata/uploads/CBLJLANXX_2_3_1.fastq",
+        "file_type": "FASTQ",
+        "data_type": "data_rna_seq",
+        "compressed": 0,
+        "user_id": "MuGUSER5a394e70646c9",
+        "creation_time": {
+            "sec": 1516623333,
+            "usec": 0
+        },
+        "taxon_id": "4932",
+        "meta_data": {
+            "size": 1975215467,
+            "parentDir": "/orozco/services/MuGdev/MuG_userdata/MuGUSER5a394e70646c9/uploads",
+            "expiration": {
+                "sec": 1524572133,
+                "usec": 0
+            },
+            "validated": 1,
+            "visible": true,
+            "taxon_id": "4932",
+            "description": "File imported from URL 'ftp://eservices.irbbarcelona.org/outgoing/ebl/CBLJLANXX_2_3_1.fastq.gz'",
+            "compress": 0
+        },
+        "sources": []
+    },
+    {
+        "_id": "MuGUSER5a394e70646c9_5a65d599461cf1.53434418",
+        "file_path": "/orozco/services/MuGdev/MuG_userdata/uploads/CBLJLANXX_2_3_2.fastq",
+        "file_type": "FASTQ",
+        "data_type": "data_rna_seq",
+        "compressed": 0,
+        "user_id": "MuGUSER5a394e70646c9",
+        "creation_time": {
+            "sec": 1516623240,
+            "usec": 0
+        },
+        "taxon_id": "4932",
+        "meta_data": {
+            "size": 1975215467,
+            "parentDir": "/orozco/services/MuGdev/MuG_userdata/MuGUSER5a394e70646c9/uploads",
+            "expiration": {
+                "sec": 1524572040,
+                "usec": 0
+            },
+            "validated": 1,
+            "visible": true,
+            "taxon_id": "4932",
+            "description": "File imported from URL 'ftp://eservices.irbbarcelona.org/outgoing/ebl/CBLJLANXX_2_3_2.fastq.gz'",
+            "compress": 0
+        },
+        "sources": []
+    }
+]

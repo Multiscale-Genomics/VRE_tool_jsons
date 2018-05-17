@@ -1,0 +1,14 @@
+{
+"output_files": [                                                    
+        {
+            "name": "rna_seq_transcripts",
+            "source_id": [
+                "MuGUSER5a394e70646c9_5a65e36a410ed0.92599619","MuGUSER5a394e70646c9_5a65d5f3d24828.04576595","MuGUSER5a394e70646c9_5a65d599461cf1.53434418"
+            ],
+            "taxon_id": "4932",
+            "meta_data": {
+            },
+            "file_path": "/orozco/services/MuGdev/MuG_userdata/MuGUSER5a394e70646c9/myProcessRNAseq_out/CBLJLANXX_2_3.tar"
+        }
+    ]
+}

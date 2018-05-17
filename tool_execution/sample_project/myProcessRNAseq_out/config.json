@@ -1,0 +1,49 @@
+{
+    "input_files": [
+        {
+            "name": "cdna",
+            "value": "MuGUSER5a394e70646c9_5a65e36a410ed0.92599619",
+            "required": true,
+            "allow_multiple": false
+        },
+        {
+            "name": "fastq2",
+            "value": "MuGUSER5a394e70646c9_5a65d5f3d24828.04576595",
+            "required": true,
+            "allow_multiple": false
+        },
+        {
+            "name": "fastq1",
+            "value": "MuGUSER5a394e70646c9_5a65d599461cf1.53434418",
+            "required": false,
+            "allow_multiple": false
+        }
+    ],
+    "arguments": [
+        {
+            "name": "project",
+            "value": "/orozco/services/MuGdev/MuG_userdata/myProcessRNAseq_out"
+        },
+        {
+            "name": "description",
+            "value": null
+        }
+    ],
+    "output_files": [
+        {
+            "name": "rna_seq_transcripts",
+            "required": true,
+            "allow_multiple": false,
+            "file": {
+                "file_type": "TAR",
+                "data_type": "data_rna_seq",
+                "meta_data": {
+                    "visible": true,
+                    "tool": "process_rnaseq",
+                    "description": "RNAseq processed transcripts packed with related data: background aligned sequences, transcript indexes, and Kallisto run information"
+                },
+                "compressed": "null"
+            }
+        }
+    ]
+}

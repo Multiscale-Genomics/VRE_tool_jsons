@@ -1,0 +1,110 @@
+{
+    "_id": "process_rnaseq",
+    "name": "Process RNA-seq",
+    "title": "RNA-seq Analysis",
+    "short_description": "Align RNA-seq data, gene expression calling with Kallisto",
+    "owner": {
+        "institution": "EMBL-EBI",
+        "author": "Mark McDowall",
+        "contact": "mcdowall@ebi.ac.uk",
+        "url": "https://github.com/Multiscale-Genomics/mg-process-fastq"
+    },
+
+
+    "has_custom_viewer": false,
+    "keywords": [
+      "Next Gen Sequencing",
+      "DNA",
+      "Sequence"
+    ],
+    "infrastructure": {
+        "memory": 12,
+        "cpus": 4,
+        "executable": "/usr/local/code/mg-process-fastq/process_rnaseq.py",
+        "clouds": {
+            "mug-irb": {
+                "launcher": "PMES",
+                "workflowType": "COMPSs",
+                "minimumVMs": 1,
+                "initialVMs": 1,
+                "default_cloud": false
+            }
+        }
+    },
+    "input_files": [
+        {
+            "name": "cdna",
+            "description": "Genome sequence file",
+            "help": "path to a assembly sequence file",
+            "file_type": [
+                "FASTA"
+            ],
+            "data_type": [
+                "sequence_cdna"
+            ],
+            "required": true,
+            "allow_multiple": false
+        },
+        {
+            "name": "fastq1",
+            "description": "Sequence read file",
+            "help": "path to a FASTQ sequence read file",
+            "file_type": [
+                "FASTQ"
+            ],
+            "data_type": [
+                "data_rna_seq"
+            ],
+            "required": false,
+            "allow_multiple": false
+        },
+        {
+            "name": "fastq2",
+            "description": "Sequence read file",
+            "help": "path to a FASTQ sequence read file",
+            "file_type": [
+                "FASTQ"
+            ],
+            "data_type": [
+                "data_rna_seq"
+            ],
+            "required": true,
+            "allow_multiple": false
+        }
+    ],
+    "input_files_combinations": [
+      {
+        "description" : "Process paired-end RNA-seq reads and cDNA",
+        "input_files":[
+            "cdna",
+            "fastq1",
+            "fastq2"
+        ]
+      },{
+        "description" : "Process single-end RNA-seq reads and cDNA",
+        "input_files":[
+            "cdna",
+            "fastq2"
+          ]
+      }
+    ],
+    "arguments": [],
+    "output_files": [
+        {
+            "name": "rna_seq_transcripts",
+            "required": true,
+            "allow_multiple": false,
+            "file": {
+                "file_type": "TAR",
+                "data_type": "data_rna_seq",
+                "meta_data": {
+                    "visible": true,
+                    "tool": "process_rnaseq",
+                    "description": "RNAseq processed transcripts packed with related data: background aligned sequences, transcript indexes, and Kallisto run information"
+                 },
+                "compressed": "null"
+            }
+        }
+        
+    ]
+}
