@@ -39,9 +39,6 @@
         },
         "url": {
           "type": "string"
-        },
-        "user": {
-          "type": "string"
         }
       },
       "required": [
@@ -50,10 +47,6 @@
         "contact"
       ],
       "additionalProperties": false
-    },
-    "external": {
-      "type": "boolean",
-      "default": true
     },
     "infrastructure": {
       "type": "object",
@@ -105,11 +98,20 @@
       "items": {
         "type": "string",
         "enum": [
-          "protein",
-          "dna",
-          "rna",
-          "visualizer",
-          "chromatin",
+          "Chromatin",
+          "Dynamics",
+          "Visualization",
+          "Hi-C",
+          "Epigenetics",
+          "Nucleosome",
+          "Modeling",
+          "Next Gen Sequencing",
+          "Interaction",
+          "RNA",
+          "DNA",
+          "Protein",
+          "Sequence",
+          "Structure",
           "other"
         ]
       },
@@ -229,6 +231,7 @@
                 "prot_structure",
                 "sequence_annotation",
                 "sequence_dna",
+                "sequence_cdna",
                 "sequence_genomic",
                 "sequence_mapping_index_bowtie",
                 "sequence_mapping_index_bwa",
@@ -265,10 +268,23 @@
     "input_files_combinations": {
       "type": "array",
       "items": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        }
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "input_files": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "description",
+          "input_files"
+        ]
       }
     },
     "arguments": {
@@ -313,7 +329,8 @@
             },
             "required": [
               "name"
-            ]
+            ],
+            "additionalProperties": false
           },
           "maximum": {
             "type": "integer"
@@ -451,6 +468,7 @@
                   "prot_structure",
                   "sequence_annotation",
                   "sequence_dna",
+                  "sequence_cdna",
                   "sequence_genomic",
                   "sequence_mapping_index_bowtie",
                   "sequence_mapping_index_bwa",
@@ -529,7 +547,6 @@
     "name",
     "title",
     "owner",
-    "external",
     "keywords",
     "infrastructure",
     "input_files",
