@@ -83,7 +83,7 @@
     "keywords_specific": {
       "type": "array",
       "items": {
-        "type": "string",
+        "type": "string"
       },
       "default": "other"
     },
