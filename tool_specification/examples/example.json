@@ -41,10 +41,10 @@
             "description": "My Input 1",
             "help": "Some explanation about 'My Input 1' displayed to user in help tooltips ",
             "file_type": [
-                "FASTQ"
+                "BAM"
             ],
             "data_type": [
-                "data_rna_seq"
+                "data_chip_seq"
             ],
             "required": true,
             "allow_multiple": false
@@ -54,10 +54,10 @@
             "description": "My Input 2",
             "help": "Some explanation about 'My Input 2' displayed to user in help tooltips ",
             "file_type": [
-                "FASTQ"
+                "BAM"
             ],
             "data_type": [
-                "data_rna_seq"
+                "data_chip_seq"
             ],
             "required": true,
             "allow_multiple": false
@@ -65,85 +65,55 @@
     ],
     "input_files_combinations": [
       {
-        "description" : "Process paired-end RNA-seq reads and cDNA",
+        "description" : "Analyse a single BAM  with 'My Tool'",
         "input_files":[
-            "cdna",
-            "fastq1",
-            "fastq2"
+            "my_input_id1"
         ]
       },{
-        "description" : "Process single-end RNA-seq reads and cDNA",
+        "description" : "Compare with 'my Tool' 2 BAMs",
         "input_files":[
-            "cdna",
-            "fastq2"
+            "my_input_id1",
+            "my_input_id2"
           ]
       }
     ],
-    "arguments": [],
-    "has_custom_viewer": false,
+    "arguments": [
+    {
+        "name": "argument_id1",
+        "description": "Argument 1",
+        "help": "Some explanation about 'Argument 1' displayed to user in help tooltips",
+        "type": "integer",
+        "default":"99"
+    }
+    ],
+    "has_custom_viewer": true,
     "output_files": [
         {
-            "name": "index",
+            "name": "output_id1",
             "required": true,
             "allow_multiple": false,
             "file": {
-                "file_type": "IDX",
-                "data_type": "data_rna_seq",
+                "file_type": "BED",
+                "data_type": "sequence_annotation",
                 "meta_data": {
                     "visible": true,
-                    "tool": "process_rnaseq",
-                    "description": "Index the transcripts"
-                },
-                "file_path": "kallisto.idx",
-                "compressed": "null"
+                    "description": "Here goes a short description of what this output file contains"
+                }
             }
         },
         {
+            "name": "output_id2",
             "required": true,
             "allow_multiple": false,
-            "name": "abundance_h5_file",
             "file": {
-                "file_type": "HDF5",
+                "file_type": "TAR",
+                "data_type": "tool_statistics",
+                "file_path": "myExecutionStatistics.tar.gz",
+                "compressed": "gzip",
                 "meta_data": {
-                    "visible": true,
-                    "tool": "process_rnaseq",
-                    "description": "Filtered aligned sequences"
-                },
-                "file_path": "kallisto.abundance.h5",
-                "data_type": "data_rna_seq",
-                "compressed": "null"
-            }
-        },
-        {
-            "required": false,
-            "allow_multiple": false,
-            "name": "abundance_tsv_file",
-            "file": {
-                "file_type": "TSV",
-                "meta_data": {
-                    "visible": true,
-                    "tool": "process_rnaseq",
-                    "description": "Background aligned sequences"
-                },
-                "file_path": "kallisto.abundance.tsv",
-                "data_type": "data_rna_seq",
-                "compressed": "null"
-            }
-        },
-        {
-            "required": false,
-            "allow_multiple": false,
-            "name": "run_info_file",
-            "file": {
-                "file_type": "JSON",
-                "meta_data": {
-                    "visible": true,
-                    "tool": "process_rnaseq",
-                    "description": "Kallisto run information file"
-                },
-                "file_path": "kallisto.run_info.json",
-                "data_type": "data_rna_seq",
-                "compressed": "null"
+                    "visible": false,
+                    "description": "Here goes a short description of what this output file contains"
+                }
             }
         }
     ]
