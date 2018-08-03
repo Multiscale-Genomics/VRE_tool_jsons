@@ -19,6 +19,14 @@
       "type": "string",
       "default": "null"
     },
+    "short_description": {
+      "type": "string",
+      "default": "null"
+    },
+    "long_description": {
+      "type": "string",
+      "default": "null"
+    },
     "url": {
       "type": "string"
     },
@@ -47,6 +55,37 @@
         "contact"
       ],
       "additionalProperties": false
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Chromatin",
+          "Dynamics",
+          "Visualization",
+          "Hi-C",
+          "Epigenetics",
+          "Nucleosome",
+          "Modeling",
+          "Next Gen Sequencing",
+          "Interaction",
+          "RNA",
+          "DNA",
+          "Protein",
+          "Sequence",
+          "Structure",
+          "other"
+        ]
+      },
+      "default": "other"
+    },
+    "keywords_specific": {
+      "type": "array",
+      "items": {
+        "type": "string",
+      },
+      "default": "other"
     },
     "infrastructure": {
       "type": "object",
@@ -93,30 +132,7 @@
       "type": "boolean",
       "default": true
     },
-    "keywords": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "enum": [
-          "Chromatin",
-          "Dynamics",
-          "Visualization",
-          "Hi-C",
-          "Epigenetics",
-          "Nucleosome",
-          "Modeling",
-          "Next Gen Sequencing",
-          "Interaction",
-          "RNA",
-          "DNA",
-          "Protein",
-          "Sequence",
-          "Structure",
-          "other"
-        ]
-      },
-      "default": "other"
-    },
+
     "input_files": {
       "type": "array",
       "items": {
@@ -545,9 +561,12 @@
   "required": [
     "_id",
     "name",
+    "short_description",
+    "long_description",
     "title",
     "owner",
     "keywords",
+    "keywords_specific",
     "infrastructure",
     "input_files",
     "arguments",
