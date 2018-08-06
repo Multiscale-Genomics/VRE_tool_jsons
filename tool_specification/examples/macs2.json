@@ -1,0 +1,124 @@
+{
+    "_id": "macs2",
+    "name": "MACS2",
+    "title" : "MACS2 peak caller",
+    "short_description": "MACS identifies statistically significantly enriched genomic regions in ChIP- and DNase-seq data",
+    "long_description": "MACS2 (Model-based Analysis of ChIP-Seq) identifies transcript factor binding sites. MACS captures the influence of genome complexity to evaluate the significance of enriched ChIP regions, and MACS improves the spatial resolution of binding sites through combining the information of both sequencing tag position and orientation. MACS can be easily used for ChIP-Seq data alone, or with control sample with the increase of specificity. ",
+    "url": "https://github.com/taoliu/MACS",
+    "publication":"10.1186/gb-2008-9-9-r137",
+    "owner": {
+        "author": "Laia Codo",
+        "institution": "Barcelona Supercomputing Center",
+        "contact": "laia.codo@bsc.es"
+    },
+    "keywords": [
+      "Next Gen Sequencing",
+      "DNA"
+    ],
+   "keywords_specific": [
+      "ChIP-seq",
+      "peak caller"
+    ],
+    "infrastructure": {
+        "memory": 12,
+        "cpus": 4,
+        "executable": "/usr/local/code/mg-process-macs2/mg_process_macs2/tool/macs2.py",
+        "clouds": {
+            "mug-irb": {
+                "launcher": "PMES",
+                "workflowType": "COMPSs",
+                "minimumVMs": 1,
+                "initialVMs": 1,
+                "default_cloud": true
+            }
+        }
+    },
+    "input_files": [
+        {
+            "name": "bam",
+            "description": "ChIP-seq reads",
+            "help": "Some explanation about 'My Input 1' displayed to user in help tooltips",
+            "file_type": [
+                "BAM"
+            ],
+            "data_type": [
+                "data_chip_seq"
+            ],
+            "required": true,
+            "allow_multiple": false
+        }
+    ],
+    "input_files_combinations": [
+      {
+        "description" : "Call peaks on ChIP-Seq reads",
+        "input_files":[
+            "bam"
+        ]
+      }
+    ],
+    "arguments": [
+    {
+        "name": "macs_nomodel_param",
+        "description": "No model",
+        "help": "Set it to TRUE if you don't want to output the model",
+        "type": "boolean",
+        "default":"false"
+    }
+    ],
+    "has_custom_viewer": false,
+
+
+    "output_files": [
+
+        {
+            "name": "narrow_peak",
+            "required": false,
+            "allow_multiple": false,
+            "file": {
+                "file_type": "BED",
+                "data_type": "data_chip_seq",
+                "meta_data": {
+                    "visible": true,
+                    "description": "MACS2 output: narrow peak"
+                }
+            }
+        }, {
+            "name": "summits",
+            "required": false,
+            "allow_multiple": false,
+            "file": {
+                "file_type": "BED",
+                "data_type": "data_chip_seq",
+                "meta_data": {
+                    "visible": true,
+                    "description": "MACS2 output: summits"
+                }
+            }
+        }, {
+            "name": "broad_peak",
+            "required": false,
+            "allow_multiple": false,
+            "file": {
+                "file_type": "BED",
+                "data_type": "data_chip_seq",
+                "meta_data": {
+                    "visible": true,
+                    "description": "MACS2 output: broad peak"
+                }
+            }
+        }, {
+            "name": "gapped_peak",
+            "required": false,
+            "allow_multiple": false,
+            "file": {
+                "file_type": "BED",
+                "data_type": "data_chip_seq",
+                "meta_data": {
+                    "visible": true,
+                    "description": "MACS2 output: gapped Peak"
+                }
+            }
+        }
+
+    ]
+}
