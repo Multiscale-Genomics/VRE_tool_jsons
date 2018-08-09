@@ -330,7 +330,7 @@
             ]
           },
           "default": {
-            "type": "string",
+            "type": ["integer", "string", "boolean", "number", "array"],
             "default": "null"
           },
           "enum_items": {
