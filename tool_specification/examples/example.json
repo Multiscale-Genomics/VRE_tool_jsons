@@ -63,6 +63,7 @@
             "allow_multiple": false
         }
     ],
+    "input_files_public_dir":[],
     "input_files_combinations": [
       {
         "description" : "Analyse a single BAM  with 'My Tool'",

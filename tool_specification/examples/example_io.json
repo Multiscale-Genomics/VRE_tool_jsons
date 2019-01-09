@@ -1,6 +1,5 @@
 {
     "_id": "my_tool_id",
-    "name": "My Tool",
     "input_files": [
         {
             "name": "my_input_id1",
@@ -29,13 +28,9 @@
             "allow_multiple": false
         }
     ],
+    "input_files_public_dir":[],
     "input_files_combinations": [
       {
-        "description" : "Analyse a single BAM  with 'My Tool'",
-        "input_files":[
-            "my_input_id1"
-        ]
-      },{
         "description" : "Compare with 'my Tool' 2 BAMs",
         "input_files":[
             "my_input_id1",
